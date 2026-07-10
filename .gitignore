@@ -1,0 +1,71 @@
+# Dependencies
+node_modules/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Caches/OS
+.cache/
+.DS_Store
+*.log
+Thumbs.db
+
+# Build outputs
+/dist/
+/build/
+/dist-ssr/
+/.next/
+/out/
+/.vercel/
+*.tsbuildinfo
+*.pem
+*.egg-info/
+
+# Vaxcode/RSI local state
+.vaxcode/
+.whalecode/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Large model artifacts (explicitly skip by size elsewhere; these are fallback)
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.npy
+*.npz
+*.h5
+*.pkl
+*.pickle
+*.joblib
+*.tflite
+*.wasm
+*.tar
+*.tar.*
+*.zip
+*.gz
+*.bz2
+*.xz
+*.7z
+*.rar
+*.zst
+*.parquet
+*.arrow
+*.mlmodel
+*.model
+*.msgpack
+*.lfs.*
+*.ftz
+*.pb
+*tfevents*
+saved_model/**/*
+
+# Large files skipped from this commit
+model/model.safetensors
+model_mlx_4bit/model.safetensors
+model_mlx_8bit/model.safetensors

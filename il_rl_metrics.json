@@ -1,0 +1,21 @@
+[
+  {
+    "iteration": 0,
+    "mean_reward": 1.0417958768873405,
+    "std_reward": 0.019564667330346786,
+    "max_reward": 1.0613605442176872,
+    "min_reward": 1.0222312095569936,
+    "best_accuracy": 0.6326530612244898,
+    "any_exact": false,
+    "advantages": [
+      -0.9999994888747858,
+      0.9999994888747745
+    ],
+    "avg_episode_tokens": 1226.0,
+    "rollout_time": 98.50918197631836,
+    "update_time": 49.73758602142334,
+    "total_time": 148.25325274467468,
+    "peak_memory": 5.247880144,
+    "loss": 0.008751392364501953
+  }
+]

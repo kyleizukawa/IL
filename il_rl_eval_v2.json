@@ -1,0 +1,342 @@
+[
+  {
+    "iteration": 0,
+    "n_puzzles": 8,
+    "mean_reward": 0.5609825148809524,
+    "mean_best_accuracy": 0.3643140589569161,
+    "exact_rate": 0.0,
+    "n_exact": 0,
+    "eval_time": 2030.668654680252,
+    "peak_memory": 2.018539808,
+    "per_puzzle": [
+      {
+        "id": "eval_transpose_000",
+        "type": "transpose",
+        "best_reward": 0.33723214285714287,
+        "best_accuracy": 0.0,
+        "exact": false
+      },
+      {
+        "id": "eval_col_reverse_001",
+        "type": "col_reverse",
+        "best_reward": 0.2782142857142857,
+        "best_accuracy": 0.4,
+        "exact": false
+      },
+      {
+        "id": "eval_outline_002",
+        "type": "outline",
+        "best_reward": 0.5859196428571429,
+        "best_accuracy": 0.0,
+        "exact": false
+      },
+      {
+        "id": "eval_rotate_003",
+        "type": "rotate",
+        "best_reward": 0.3505357142857143,
+        "best_accuracy": 0.8367346938775511,
+        "exact": false
+      },
+      {
+        "id": "eval_adjacency_004",
+        "type": "adjacency",
+        "best_reward": 0.7322678571428572,
+        "best_accuracy": 0.2777777777777778,
+        "exact": false
+      },
+      {
+        "id": "eval_threshold_005",
+        "type": "threshold",
+        "best_reward": 0.6823690476190476,
+        "best_accuracy": 0.75,
+        "exact": false
+      },
+      {
+        "id": "eval_color_swap_006",
+        "type": "color_swap",
+        "best_reward": 0.7423214285714286,
+        "best_accuracy": 0.65,
+        "exact": false
+      },
+      {
+        "id": "eval_flip_color_007",
+        "type": "flip_color",
+        "best_reward": 0.7789999999999999,
+        "best_accuracy": 0.0,
+        "exact": false
+      }
+    ]
+  },
+  {
+    "iteration": 10,
+    "n_puzzles": 8,
+    "mean_reward": 0.9825199032738097,
+    "mean_best_accuracy": 0.3163690476190476,
+    "exact_rate": 0.125,
+    "n_exact": 1,
+    "eval_time": 1910.4136679172516,
+    "peak_memory": 2.061498674,
+    "per_puzzle": [
+      {
+        "id": "eval_transpose_000",
+        "type": "transpose",
+        "best_reward": 0.4853571428571428,
+        "best_accuracy": 0.38095238095238093,
+        "exact": false
+      },
+      {
+        "id": "eval_col_reverse_001",
+        "type": "col_reverse",
+        "best_reward": 0.2782142857142857,
+        "best_accuracy": 0.4,
+        "exact": false
+      },
+      {
+        "id": "eval_outline_002",
+        "type": "outline",
+        "best_reward": 0.47662053571428575,
+        "best_accuracy": 0.0,
+        "exact": false
+      },
+      {
+        "id": "eval_rotate_003",
+        "type": "rotate",
+        "best_reward": 0.2782142857142857,
+        "best_accuracy": 0.0,
+        "exact": false
+      },
+      {
+        "id": "eval_adjacency_004",
+        "type": "adjacency",
+        "best_reward": 0.7278482142857143,
+        "best_accuracy": 0.0,
+        "exact": false
+      },
+      {
+        "id": "eval_threshold_005",
+        "type": "threshold",
+        "best_reward": 0.6889583333333333,
+        "best_accuracy": 0.75,
+        "exact": false
+      },
+      {
+        "id": "eval_color_swap_006",
+        "type": "color_swap",
+        "best_reward": 0.7085714285714286,
+        "best_accuracy": 0.0,
+        "exact": false
+      },
+      {
+        "id": "eval_flip_color_007",
+        "type": "flip_color",
+        "best_reward": 4.216375,
+        "best_accuracy": 1.0,
+        "exact": true
+      }
+    ]
+  },
+  {
+    "iteration": 20,
+    "n_puzzles": 8,
+    "mean_reward": 1.1317020089285714,
+    "mean_best_accuracy": 0.612875566893424,
+    "exact_rate": 0.125,
+    "n_exact": 1,
+    "eval_time": 1712.3418700695038,
+    "peak_memory": 2.061515058,
+    "per_puzzle": [
+      {
+        "id": "eval_transpose_000",
+        "type": "transpose",
+        "best_reward": 0.4443750000000001,
+        "best_accuracy": 0.0,
+        "exact": false
+      },
+      {
+        "id": "eval_col_reverse_001",
+        "type": "col_reverse",
+        "best_reward": 0.2929285714285714,
+        "best_accuracy": 0.4,
+        "exact": false
+      },
+      {
+        "id": "eval_outline_002",
+        "type": "outline",
+        "best_reward": 0.5807455357142858,
+        "best_accuracy": 0.4107142857142857,
+        "exact": false
+      },
+      {
+        "id": "eval_rotate_003",
+        "type": "rotate",
+        "best_reward": 0.3505357142857143,
+        "best_accuracy": 0.8367346938775511,
+        "exact": false
+      },
+      {
+        "id": "eval_adjacency_004",
+        "type": "adjacency",
+        "best_reward": 0.842919642857143,
+        "best_accuracy": 0.5555555555555556,
+        "exact": false
+      },
+      {
+        "id": "eval_threshold_005",
+        "type": "threshold",
+        "best_reward": 0.7959151785714287,
+        "best_accuracy": 0.75,
+        "exact": false
+      },
+      {
+        "id": "eval_color_swap_006",
+        "type": "color_swap",
+        "best_reward": 1.5298214285714287,
+        "best_accuracy": 0.95,
+        "exact": false
+      },
+      {
+        "id": "eval_flip_color_007",
+        "type": "flip_color",
+        "best_reward": 4.216375,
+        "best_accuracy": 1.0,
+        "exact": true
+      }
+    ]
+  },
+  {
+    "iteration": 30,
+    "n_puzzles": 8,
+    "mean_reward": 1.0541075148809522,
+    "mean_best_accuracy": 0.5338293650793651,
+    "exact_rate": 0.125,
+    "n_exact": 1,
+    "eval_time": 1600.4595589637756,
+    "peak_memory": 2.061515058,
+    "per_puzzle": [
+      {
+        "id": "eval_transpose_000",
+        "type": "transpose",
+        "best_reward": 0.35035714285714287,
+        "best_accuracy": 0.5,
+        "exact": false
+      },
+      {
+        "id": "eval_col_reverse_001",
+        "type": "col_reverse",
+        "best_reward": 0.47974999999999995,
+        "best_accuracy": 0.4,
+        "exact": false
+      },
+      {
+        "id": "eval_outline_002",
+        "type": "outline",
+        "best_reward": 0.48540178571428566,
+        "best_accuracy": 0.4107142857142857,
+        "exact": false
+      },
+      {
+        "id": "eval_rotate_003",
+        "type": "rotate",
+        "best_reward": 0.2782142857142857,
+        "best_accuracy": 0.0,
+        "exact": false
+      },
+      {
+        "id": "eval_adjacency_004",
+        "type": "adjacency",
+        "best_reward": 0.4092321428571428,
+        "best_accuracy": 0.2777777777777778,
+        "exact": false
+      },
+      {
+        "id": "eval_threshold_005",
+        "type": "threshold",
+        "best_reward": 0.6837083333333334,
+        "best_accuracy": 0.7321428571428571,
+        "exact": false
+      },
+      {
+        "id": "eval_color_swap_006",
+        "type": "color_swap",
+        "best_reward": 1.5298214285714287,
+        "best_accuracy": 0.95,
+        "exact": false
+      },
+      {
+        "id": "eval_flip_color_007",
+        "type": "flip_color",
+        "best_reward": 4.216375,
+        "best_accuracy": 1.0,
+        "exact": true
+      }
+    ]
+  },
+  {
+    "iteration": 40,
+    "n_puzzles": 8,
+    "mean_reward": 0.5871675251831502,
+    "mean_best_accuracy": 0.14136904761904762,
+    "exact_rate": 0.0,
+    "n_exact": 0,
+    "eval_time": 1673.2561321258545,
+    "peak_memory": 2.061498674,
+    "per_puzzle": [
+      {
+        "id": "eval_transpose_000",
+        "type": "transpose",
+        "best_reward": 0.4853571428571428,
+        "best_accuracy": 0.38095238095238093,
+        "exact": false
+      },
+      {
+        "id": "eval_col_reverse_001",
+        "type": "col_reverse",
+        "best_reward": 0.2782142857142857,
+        "best_accuracy": 0.0,
+        "exact": false
+      },
+      {
+        "id": "eval_outline_002",
+        "type": "outline",
+        "best_reward": 0.5441607142857143,
+        "best_accuracy": 0.0,
+        "exact": false
+      },
+      {
+        "id": "eval_rotate_003",
+        "type": "rotate",
+        "best_reward": 0.5144642857142858,
+        "best_accuracy": 0.0,
+        "exact": false
+      },
+      {
+        "id": "eval_adjacency_004",
+        "type": "adjacency",
+        "best_reward": 0.7244107142857144,
+        "best_accuracy": 0.0,
+        "exact": false
+      },
+      {
+        "id": "eval_threshold_005",
+        "type": "threshold",
+        "best_reward": 0.6728044871794872,
+        "best_accuracy": 0.75,
+        "exact": false
+      },
+      {
+        "id": "eval_color_swap_006",
+        "type": "color_swap",
+        "best_reward": 0.6989285714285713,
+        "best_accuracy": 0.0,
+        "exact": false
+      },
+      {
+        "id": "eval_flip_color_007",
+        "type": "flip_color",
+        "best_reward": 0.7789999999999999,
+        "best_accuracy": 0.0,
+        "exact": false
+      }
+    ]
+  }
+]
