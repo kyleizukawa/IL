@@ -1,0 +1,7 @@
+{
+  "title": "IL Research SFT v2 + Benchmark",
+  "id": "krokodileceo/il-research-sft-v2-benchmark",
+  "licenses": [{ "name": "CC0-1.0" }],
+  "isPrivate": true,
+  "description": "Improved SFT data v2 (1104 train examples with CoT reasoning traces + think tags) + 36-puzzle benchmark for the IL pipeline."
+}

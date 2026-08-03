@@ -1,0 +1,7 @@
+{
+  "title": "IL Research SFT + Benchmark",
+  "id": "krokodileceo/il-research-sft-benchmark",
+  "licenses": [{ "name": "CC0-1.0" }],
+  "isPrivate": true,
+  "description": "SFT data (il_data_filt: train/valid/test jsonl, ARC-AGI3-style reasoning traces) + 36-puzzle benchmark_dataset.json for the IL (Intuition Learning) research pipeline."
+}

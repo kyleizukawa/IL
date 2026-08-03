@@ -1,0 +1,11 @@
+{
+  "title": "IL Research SFT v3 + Benchmark",
+  "id": "krokodileceo/il-research-sft-v3-benchmark",
+  "licenses": [
+    {
+      "name": "CC0-1.0"
+    }
+  ],
+  "isPrivate": true,
+  "description": "v4 SFT data (1978 examples with computation traces + self-correction + transfer skills) + 36-puzzle benchmark. Fixed think tags to match R1-distill native tag."
+}
