@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A visual field guide to Intuition Learning, the IL Factory research pipeline, and how it differs from reinforcement learning."
+    />
+    <title>IL Factory — Intuition before reward</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="IL Factory home">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>IL / FACTORY</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#idea">The idea</a>
+        <a href="#pipeline">Pipeline</a>
+        <a href="#difference">IL vs RL</a>
+        <a href="#evidence">Evidence</a>
+      </nav>
+      <a class="repo-link" href="https://github.com/Vaskrokodile/ilfactory" target="_blank" rel="noreferrer">
+        View repository <span aria-hidden="true">↗</span>
+      </a>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top">
+        <div class="hero-copy">
+          <p class="eyebrow">Research field note / 001</p>
+          <h1>Teach the <em>shape</em><br />of good thinking.</h1>
+          <p class="lede">
+            Intuition Learning gives a small model worked examples of how to observe,
+            hypothesize, verify, and answer—then uses reinforcement learning to sharpen
+            that learned instinct. It is less “reward a lucky answer” and more “build a
+            useful prior before the search begins.”
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#pipeline">Trace the pipeline</a>
+            <a class="button text" href="#difference">Compare IL and RL <span aria-hidden="true">↓</span></a>
+          </div>
+          <div class="hero-meta" aria-label="Project facts">
+            <div><strong>1.78B</strong><span>parameter base model</span></div>
+            <div><strong>20</strong><span>training environments</span></div>
+            <div><strong>36</strong><span>transfer puzzles</span></div>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="An abstract grid showing a pattern transformed into a learned rule">
+          <div class="visual-label"><span>INPUT / OBSERVE</span><span>07 × 07</span></div>
+          <div class="grid-stage" aria-hidden="true">
+            <div class="pixel-grid input-grid"></div>
+            <div class="transfer-line">
+              <span>observe</span><span>infer</span><span>verify</span>
+            </div>
+            <div class="pixel-grid output-grid"></div>
+          </div>
+          <div class="rule-card">
+            <span class="rule-index">RULE 03</span>
+            <p>Complete the reflected pattern while preserving color and position.</p>
+            <span class="confidence"><i></i> intuition formed</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section manifesto" id="idea">
+        <div class="section-index">01</div>
+        <div class="section-heading">
+          <p class="eyebrow">The thesis</p>
+          <h2>IL is a curriculum for reasoning—not a replacement name for RL.</h2>
+        </div>
+        <div class="manifesto-copy">
+          <p>
+            In this repository, “IL” means <strong>Intuition Learning</strong>: a practical
+            training strategy for small reasoning models. The model first studies
+            synthetic tasks paired with teacher-generated reasoning traces. Those traces
+            teach a reusable method: inspect concrete details, infer a transformation,
+            test the hypothesis, and only then produce an answer.
+          </p>
+          <p>
+            The desired result is an <strong>inductive bias</strong>—a starting tendency
+            that makes useful strategies easier to discover on unfamiliar problems. RL is
+            still present, but it arrives after supervised fine-tuning and works on a model
+            that already has a vocabulary of reasoning moves.
+          </p>
+          <aside>
+            <span>In one line</span>
+            <blockquote>IL supplies the map. RL improves the route.</blockquote>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section pipeline-section" id="pipeline">
+        <div class="section-index">02</div>
+        <div class="section-heading wide">
+          <p class="eyebrow">Inside the factory</p>
+          <h2>One loop, three kinds of learning signal.</h2>
+          <p>
+            The project deliberately separates demonstration, exploration, and evaluation.
+            Each stage answers a different question.
+          </p>
+        </div>
+
+        <div class="pipeline" role="list" aria-label="Intuition Learning pipeline">
+          <article class="pipeline-card" role="listitem">
+            <span class="step-number">01</span>
+            <div class="step-icon grid-icon" aria-hidden="true"></div>
+            <p class="eyebrow">Generate</p>
+            <h3>Build micro-worlds</h3>
+            <p>
+              Twenty ARC-style environments generate grids, rules, answers, and varied
+              difficulty. Agentic extensions add realistic coding environments with
+              deterministic graders.
+            </p>
+            <code>il/data_gen.py</code>
+          </article>
+
+          <article class="pipeline-card" role="listitem">
+            <span class="step-number">02</span>
+            <div class="step-icon trace-icon" aria-hidden="true"><i></i><i></i><i></i></div>
+            <p class="eyebrow">Demonstrate</p>
+            <h3>Imprint reasoning traces</h3>
+            <p>
+              Supervised fine-tuning (SFT) uses worked examples to teach observation,
+              cell-level analysis, hypothesis formation, verification, and a reliable
+              answer format.
+            </p>
+            <code>il_data/ → il_adapters/</code>
+          </article>
+
+          <article class="pipeline-card featured" role="listitem">
+            <span class="step-number">03</span>
+            <div class="step-icon reward-icon" aria-hidden="true"><span>+R</span></div>
+            <p class="eyebrow">Reinforce</p>
+            <h3>Sharpen with GRPO</h3>
+            <p>
+              The model samples several solutions. A task grader scores correctness,
+              structure, and partial progress. Relative advantages push probability toward
+              the stronger trajectories.
+            </p>
+            <code>il_rl/ → adapters</code>
+          </article>
+
+          <article class="pipeline-card" role="listitem">
+            <span class="step-number">04</span>
+            <div class="step-icon transfer-icon" aria-hidden="true"><span>A</span><span>B</span></div>
+            <p class="eyebrow">Challenge</p>
+            <h3>Measure transfer</h3>
+            <p>
+              Thirty-six held-out puzzles use twelve transformation families that differ
+              from training. The benchmark tests whether a procedure transfers—not whether
+              an example was memorized.
+            </p>
+            <code>run_benchmark.py</code>
+          </article>
+        </div>
+      </section>
+
+      <section class="section difference-section" id="difference">
+        <div class="section-index">03</div>
+        <div class="section-heading wide">
+          <p class="eyebrow">The important distinction</p>
+          <h2>Same destination. Different first move.</h2>
+          <p>
+            Pure RL begins with behavior and judges the outcome. IL begins with examples
+            of the behavior it wants, then lets RL refine it.
+          </p>
+        </div>
+
+        <div class="compare-controls" role="tablist" aria-label="Compare learning approaches">
+          <button class="compare-tab active" id="tab-il" role="tab" aria-selected="true" aria-controls="panel-il" data-target="il">Intuition Learning</button>
+          <button class="compare-tab" id="tab-rl" role="tab" aria-selected="false" aria-controls="panel-rl" data-target="rl">Reinforcement Learning</button>
+        </div>
+
+        <div class="compare-stage">
+          <article class="method-panel active" id="panel-il" role="tabpanel" aria-labelledby="tab-il">
+            <div class="method-name"><span>IL</span><p>demonstration-led,<br />then reward-refined</p></div>
+            <div class="method-flow" aria-label="Data flows through demonstrations, supervised fine-tuning, reinforcement learning, then transfer">
+              <span>worked traces</span><i>→</i><span>useful prior</span><i>→</i><span>reward</span><i>→</i><span>transfer</span>
+            </div>
+            <p class="method-summary">
+              The search starts in a better neighborhood. This is especially valuable when
+              rewards are sparse, models are small, and blindly discovering a multi-step
+              reasoning process would be expensive.
+            </p>
+          </article>
+
+          <article class="method-panel" id="panel-rl" role="tabpanel" aria-labelledby="tab-rl" hidden>
+            <div class="method-name"><span>RL</span><p>exploration-led,<br />reward-directed</p></div>
+            <div class="method-flow" aria-label="A policy explores, receives reward, and updates repeatedly">
+              <span>policy</span><i>→</i><span>explore</span><i>→</i><span>reward</span><i>↺</i><span>update</span>
+            </div>
+            <p class="method-summary">
+              The policy can discover novel strategies without demonstrations, but credit
+              assignment is difficult when success is rare or only visible at the end of a
+              long trajectory.
+            </p>
+          </article>
+        </div>
+
+        <div class="comparison-table" role="table" aria-label="Detailed comparison of Intuition Learning and Reinforcement Learning">
+          <div class="comparison-row header-row" role="row">
+            <div role="columnheader">Question</div><div role="columnheader">Intuition Learning</div><div role="columnheader">Reinforcement Learning</div>
+          </div>
+          <div class="comparison-row" role="row">
+            <div role="rowheader">Where does the signal come from?</div><div role="cell">Teacher traces first; grader rewards second.</div><div role="cell">Rewards from interaction or evaluation.</div>
+          </div>
+          <div class="comparison-row" role="row">
+            <div role="rowheader">What is learned first?</div><div role="cell">A reasoning routine and answer format.</div><div role="cell">Actions that correlate with higher return.</div>
+          </div>
+          <div class="comparison-row" role="row">
+            <div role="rowheader">What does exploration look like?</div><div role="cell">Variations around demonstrated strategies.</div><div role="cell">Broader trial-and-error from the current policy.</div>
+          </div>
+          <div class="comparison-row" role="row">
+            <div role="rowheader">Main advantage</div><div role="cell">Sample-efficient warm start for sparse rewards.</div><div role="cell">Can exceed the teacher and discover new behavior.</div>
+          </div>
+          <div class="comparison-row" role="row">
+            <div role="rowheader">Main failure mode</div><div role="cell">Imitating the trace’s style without doing the reasoning.</div><div role="cell">Reward hacking, unstable updates, or aimless search.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section evidence-section" id="evidence">
+        <div class="section-index">04</div>
+        <div class="section-heading wide">
+          <p class="eyebrow">What happened in v2</p>
+          <h2>Most of the lift came from teaching the pattern of thought.</h2>
+          <p>
+            On 36 held-out transfer puzzles, richer chain-of-thought demonstrations created
+            the largest jump. GRPO then improved structural accuracy further. These are
+            research results from this repository—not a general benchmark claim.
+          </p>
+        </div>
+
+        <div class="results-grid">
+          <div class="chart-card">
+            <div class="chart-header"><span>Average cell accuracy</span><span>higher is better</span></div>
+            <div class="bar-row"><span>Base</span><div class="bar-track"><i style="--value: 12.4%"></i></div><strong>4.9%</strong></div>
+            <div class="bar-row"><span>+ SFT</span><div class="bar-track"><i style="--value: 78.2%"></i></div><strong>30.9%</strong></div>
+            <div class="bar-row accent"><span>+ GRPO</span><div class="bar-track"><i style="--value: 100%"></i></div><strong>39.5%</strong></div>
+            <p class="chart-note">Scale normalized to the best stage (39.5%).</p>
+          </div>
+          <div class="chart-card">
+            <div class="chart-header"><span>Correct output shape</span><span>20 / 36 after GRPO</span></div>
+            <div class="bar-row"><span>Base</span><div class="bar-track"><i style="--value: 10.1%"></i></div><strong>5.6%</strong></div>
+            <div class="bar-row"><span>+ SFT</span><div class="bar-track"><i style="--value: 64.9%"></i></div><strong>36.1%</strong></div>
+            <div class="bar-row accent"><span>+ GRPO</span><div class="bar-track"><i style="--value: 100%"></i></div><strong>55.6%</strong></div>
+            <p class="chart-note">Transfer task shape match; not exact puzzle accuracy.</p>
+          </div>
+        </div>
+
+        <div class="finding-strip">
+          <article><span class="finding-number">+26.0</span><span>points from supervised reasoning traces</span></article>
+          <article><span class="finding-number">+8.5</span><span>additional points after GRPO</span></article>
+          <article><span class="finding-number">0 / 36</span><span>exact matches—a candid limit of this run</span></article>
+        </div>
+
+        <div class="honesty-note">
+          <p class="eyebrow">The crucial caveat</p>
+          <h3>A fluent trace is not proof of reasoning.</h3>
+          <p>
+            The project’s own analysis found template mimicry: the model sometimes copied
+            the surface form of “look, infer, answer” without grounding claims in specific
+            cells. Later dataset versions respond with cell-level observations,
+            self-correction, computation traces, and verification. IL succeeds only when
+            its demonstrations teach the actual cognitive operation—not decorative prose.
+          </p>
+        </div>
+      </section>
+
+      <section class="section principles-section">
+        <div class="section-index">05</div>
+        <div class="section-heading wide">
+          <p class="eyebrow">When the recipe makes sense</p>
+          <h2>Use IL when examples can narrow an otherwise costly search.</h2>
+        </div>
+        <div class="principles-grid">
+          <article><span>01</span><h3>Sparse rewards</h3><p>Correct outcomes are rare, so unguided exploration produces little useful signal.</p></article>
+          <article><span>02</span><h3>Small models</h3><p>Limited capacity benefits from an explicit curriculum and a constrained strategy space.</p></article>
+          <article><span>03</span><h3>Verifiable tasks</h3><p>Deterministic graders can distinguish correctness, partial progress, and structural quality.</p></article>
+          <article><span>04</span><h3>Transfer matters</h3><p>Held-out task families reveal whether a learned procedure travels beyond memorized templates.</p></article>
+        </div>
+      </section>
+
+      <section class="closing-section">
+        <p class="eyebrow">The takeaway</p>
+        <h2>Intuition is not magic.<br />It is compressed experience.</h2>
+        <p>
+          IL Factory treats that experience as something we can design: generate it,
+          demonstrate it, reinforce it, and test whether it transfers.
+        </p>
+        <a class="button primary" href="https://github.com/Vaskrokodile/ilfactory" target="_blank" rel="noreferrer">Explore the code <span aria-hidden="true">↗</span></a>
+      </section>
+    </main>
+
+    <footer>
+      <a class="brand footer-brand" href="#top"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>IL / FACTORY</span></a>
+      <p>A concise visual companion to the IL Factory research repository.</p>
+      <p>Local field note · 2026</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
